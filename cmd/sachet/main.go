@@ -108,11 +108,11 @@ func main() {
 		if r.Method == "POST" {
 			log.Println("Loading configuration file", *configFile)
 			if err := LoadConfig(*configFile); err!=nil {
-               http.Error(w, err.Error(), http.StatusInternalServerError)
+				http.Error(w, err.Error(), http.StatusInternalServerError)
 			} 
-        } else {
-            http.Error(w, "Invalid request method.", http.StatusMethodNotAllowed)
-        }
+		} else {
+			http.Error(w, "Invalid request method.", http.StatusMethodNotAllowed)
+		}
 	})
 
 	if os.Getenv("PORT") != "" {
